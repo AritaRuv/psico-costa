@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('professional', {
+  sequelize.define('profesional', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -11,36 +11,21 @@ module.exports = (sequelize) => {
       unique: true,
       primaryKey: true
     },
-    name: {
+    nombre_completo: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    height_min: {
-      type: DataTypes.STRING,
+    fecha_nacimiento: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    height_max: {
-      type: DataTypes.STRING,
+    matricula: {
+      type: DataTypes.STRING ,
       allowNull: false,
     },
-    weight_min: {
+    tarifa: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    weight_max: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    life_span: {
-      type: DataTypes.STRING,
-    },
-    image: {
-      type: DataTypes.STRING,
-    },
-    createdDb: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
     }
-    
   },{timestamps: false});
 };

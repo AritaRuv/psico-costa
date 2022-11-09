@@ -10,15 +10,15 @@ module.exports = (sequelize) => {
       unique: true,
       primaryKey: true
     },
-    nombreCompleto: {
+    nombre_completo: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     nacimiento:{
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull:false
     },
-    numeroTelefono: {
+    numero_telefono: {
       type: DataTypes.NUMBER,
       allowNull: false,
     },
@@ -29,10 +29,8 @@ module.exports = (sequelize) => {
     consentimiento: {
       type: DataTypes.STRING,
     },
-    contactoAlternativo:{
+    contacto_alternativo:{
     type: DataTypes.INTEGER
-    }
-
-    
+    }    
   },{timestamps: false});
 };
