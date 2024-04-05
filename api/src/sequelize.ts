@@ -7,4 +7,10 @@ const sequelize = new Sequelize('psicocosta', 'psicocosta', 'nueva_contraseña',
   dialect: 'mysql'
 });
 
+sequelize.sync({ force: true }).then(() => {
+  console.log('Todas las tablas han sido eliminadas y sincronizadas');
+}).catch(err => {
+  console.error('Error al sincronizar tablas:', err);
+});
+
 export default sequelize;
