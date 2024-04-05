@@ -10,7 +10,7 @@ class Professional extends Model {
     public license!: string;
     public socialNumber!: number;
     public phoneNumber!: number;
-
+    public isDeleted!: boolean;
     // Otras propiedades y métodos del modelo si las hay
 }
 Professional.init(
@@ -56,7 +56,12 @@ Professional.init(
                 model: Role, // Asegúrate de importar el modelo de Role
                 key: 'ID_Role' // Esto debe coincidir con el nombre del campo ID_Role en el modelo Role
             }
-        }
+        },
+        isDeleted: {
+          type: DataTypes.BOOLEAN,
+          allowNull: false,
+          defaultValue: false,
+        },
     },
     {
         sequelize,
