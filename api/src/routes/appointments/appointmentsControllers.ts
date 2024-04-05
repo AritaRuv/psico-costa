@@ -27,11 +27,13 @@ export async function getAppointmentById(ID_appointment: number):  Promise<Appoi
 
 export async function createNewAppointment(body: Appointment){
 
-  const { date, hour } = body;
+  const { date, hour, patient_id, professional_id } = body;
   try {
     const newAppointment = await Appointment.create({
       date,
-      hour
+      hour,
+      patient_id,
+      professional_id
     });
     return newAppointment;
     
