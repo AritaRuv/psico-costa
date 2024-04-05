@@ -1,3 +1,4 @@
+//index.ts
 import express, { Request, Response } from 'express';
 import sequelize from './sequelize'; // Importa la instancia de Sequelize que configuraste
 import Appointment from './models/Appointment'; // Importa tus modelos
@@ -15,8 +16,8 @@ import Role from './models/Role';
 dotenv.config(); // Carga las variables de entorno de un archivo .env si lo deseas
 
 const app = express();
-const port = process.env.PORT || 3000;
-const isDev = process.env.NODE_ENV === 'development';
+const port = 3000;
+//const isDev = process.env.NODE_ENV === 'development';
 
 app.use(express.json());
 app.use(cors()); // Configura CORS si es necesario
@@ -37,7 +38,7 @@ app.use(cors()); // Configura CORS si es necesario
       Appointment,
     ];
     for (const model of models) {
-      await model.sync({ force: isDev });
+      await model.sync({ force: true });
     }
    
   } catch (error) {

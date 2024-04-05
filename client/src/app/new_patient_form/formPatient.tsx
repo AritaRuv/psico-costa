@@ -2,7 +2,7 @@ import { Box, InputGroup, Input, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { NewPatient, NewPatientProps } from "@/redux/NewPatient/newPatientTypes";
 
-export const NewPatientForm: React.FC<NewPatientProps> = ({formData}) => { 
+export const NewPatientForm: React.FC<NewPatientProps> = ({formData, setFormData}) => { 
 
 	const varNewPatient = [
 		{title: "Nombre", dbTable: "firstName" },
@@ -14,6 +14,15 @@ export const NewPatientForm: React.FC<NewPatientProps> = ({formData}) => {
 		{title: "Genero", dbTable: "gender" },
 		{title: "Plan Obra Social", dbTable: "inurancePlan_id" },
 	];
+
+	const handleInput = (event: React.ChangeEvent<HTMLInputElement>) =>{
+		const {name, value} = event.target
+		setFormData({
+      ...formData,
+      [name]: value,
+    });
+	}
+
 	return(
 		<>
 			<VStack w={"350px"} p={"10px"}>
@@ -22,7 +31,7 @@ export const NewPatientForm: React.FC<NewPatientProps> = ({formData}) => {
             return(
               <InputGroup display={"flex"} flexDir={"column"} key={i}>
                 <Text>{e.title}</Text>
-								<Input value={formData[e.dbTable as keyof NewPatient] || ''}/>
+								<Input onChange={handleInput} name={e.dbTable} value={formData[e.dbTable as keyof NewPatient] || ''}/>
               </InputGroup>
               )
 				  })

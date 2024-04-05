@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//index.ts
 const express_1 = __importDefault(require("express"));
 const sequelize_1 = __importDefault(require("./sequelize")); // Importa la instancia de Sequelize que configuraste
 const Appointment_1 = __importDefault(require("./models/Appointment")); // Importa tus modelos
@@ -18,8 +19,8 @@ const LogIn_1 = __importDefault(require("./models/LogIn"));
 const Role_1 = __importDefault(require("./models/Role"));
 dotenv_1.default.config(); // Carga las variables de entorno de un archivo .env si lo deseas
 const app = (0, express_1.default)();
-const port = process.env.PORT || 3000;
-const isDev = process.env.NODE_ENV === 'development';
+const port = 3000;
+//const isDev = process.env.NODE_ENV === 'development';
 app.use(express_1.default.json());
 app.use((0, cors_1.default)()); // Configura CORS si es necesario
 (async () => {
@@ -38,7 +39,7 @@ app.use((0, cors_1.default)()); // Configura CORS si es necesario
             Appointment_1.default,
         ];
         for (const model of models) {
-            await model.sync({ force: isDev });
+            await model.sync({ force: true });
         }
     }
     catch (error) {
