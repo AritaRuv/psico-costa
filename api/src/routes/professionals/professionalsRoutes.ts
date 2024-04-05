@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import {createNewProfessional, getAllProfessionals, getProfessionalById, softDeleteProfessionalById, updateProfessionalById} from './professionalsControllers';
 const professionalsRouter = express.Router();
 
-// Ruta para obtener todos los pacientes
+// Ruta para obtener todos los Profesionales
 professionalsRouter.get('/get_all', async (req: Request, res: Response) => {
   try {
     const professionals = await getAllProfessionals();
@@ -12,7 +12,7 @@ professionalsRouter.get('/get_all', async (req: Request, res: Response) => {
   }
 });
 
-// Ruta para obtener un paciente por ID
+// Ruta para obtener un Profesional por ID
 professionalsRouter.get('/:id', async (req: Request, res: Response) => {
   const professionalId = req.params.id;
   try {
@@ -23,7 +23,7 @@ professionalsRouter.get('/:id', async (req: Request, res: Response) => {
   }
 });
 
-// Ruta para crear un nuevo paciente
+// Ruta para crear un nuevo Profesional
 professionalsRouter.post('/', async (req: Request, res: Response) => {
   const newProfessional = req.body; // Los datos del paciente estarán en req.body
   try {
@@ -34,7 +34,7 @@ professionalsRouter.post('/', async (req: Request, res: Response) => {
   }
 });
 
-// Ruta para actualizar un paciente por ID
+// Ruta para actualizar un Profesional por ID
 professionalsRouter.put('/:id', async (req: Request, res: Response) => {
   const professionalId = req.params.id;
   const datosActualizados = req.body; // Los nuevos datos del profesional estarán en req.body
@@ -46,7 +46,7 @@ professionalsRouter.put('/:id', async (req: Request, res: Response) => {
   }
 });
 
-// Ruta para eliminar un paciente por ID
+// Ruta para eliminar un Profesional por ID
 professionalsRouter.delete('/:id', async (req: Request, res: Response) => {
   const professionalId = req.params.id;
   try {
