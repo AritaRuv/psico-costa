@@ -1,6 +1,6 @@
 import { Box, InputGroup, Input, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { NewPatient, NewPatientProps } from "@/redux/NewPatient/newPatientTypes";
+import { NewPatient, NewPatientProps } from "@/redux/patient/patient_types";
 
 export const NewPatientForm: React.FC<NewPatientProps> = ({formData, setFormData}) => { 
 

@@ -24,7 +24,7 @@ patientRouter.get('/:id', async (req: Request, res: Response) => {
 });
 
 // Ruta para crear un nuevo paciente
-patientRouter.post('/', async (req: Request, res: Response) => {
+patientRouter.post('/new_patient', async (req: Request, res: Response) => {
   const newPatient = req.body; // Los datos del paciente estarán en req.body
   try {
     const patient = await createNewPatient(newPatient);

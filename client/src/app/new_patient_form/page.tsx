@@ -2,7 +2,7 @@
 import { Box, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { NewPatientForm } from "./formPatient";
-import { NewPatient } from "@/redux/NewPatient/newPatientTypes";
+import { NewPatient } from "@/redux/patient/patient_types";
 
 export default function NewPatientPage () {
 
