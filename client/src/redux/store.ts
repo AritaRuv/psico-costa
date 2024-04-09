@@ -1,11 +1,10 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import newPatientReducer from "./patient/patient_reducer";
+import {patientReducer} from "./patient/patient_reducer";
 
 const rootReducer = combineReducers({
-	newPatientReducer
-	
+	patientReducer
 });
 
 export const store = configureStore({

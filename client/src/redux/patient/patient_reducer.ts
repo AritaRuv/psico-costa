@@ -18,4 +18,4 @@ const patientReducer = (
 
   }
 
-  export default patientReducer;
+  export {patientReducer};

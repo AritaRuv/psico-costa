@@ -6,6 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import theme from "@/theme";
+import { AppProvider } from "./appContext";
 
 type ProvidersProps = {
   children: React.ReactNode;
@@ -15,9 +16,11 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
 	return (
 		<Provider store={store}>
 			<CacheProvider>
-				<ChakraProvider theme={theme}>
-					{children}
-				</ChakraProvider>
+				<AppProvider>
+					<ChakraProvider theme={theme}>
+						{children}
+					</ChakraProvider>
+				</AppProvider>
 			</CacheProvider>
 		</Provider>
 	);
