@@ -14,6 +14,7 @@ class Patient extends Model {
   public dni!: number;
   public gender!: string;
   public isDeleted!: boolean;
+  public role_id!: number;
   // Otras propiedades y métodos del modelo si las hay
 }
 Patient.init(

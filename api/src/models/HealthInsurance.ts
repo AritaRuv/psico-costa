@@ -5,7 +5,9 @@ class HealthInsurance extends Model {
   public ID_healthInsurance!: number;
   public name!: string;
   public email!: string;
+  public phoneNumber!: string;
   public socialNumber!: number;
+  public isDeleted!: boolean;
 }
 
 HealthInsurance.init(
@@ -30,7 +32,16 @@ HealthInsurance.init(
       validate: {
         isEmail: true, 
       }
-    }
+    },
+    phoneNumber: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    isDeleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
   {
     sequelize,

@@ -7,6 +7,8 @@ class Appointment extends Model {
   public ID_appointment!: number;
   public date!: DateOnlyDataType;
   public hour!: string;
+  public patient_id!: number;
+  public professional_id!: number;
 
   // Otras propiedades y métodos del modelo si las hay
 }

@@ -27,7 +27,7 @@ export async function getPatientById(ID_patient: number):  Promise<Patient | Err
 
 export async function createNewPatient(body: Patient){
 
-  const { firstName, lastName, email, address, birthDate, phoneNumber, dni , gender} = body;
+  const { firstName, lastName, email, address, birthDate, phoneNumber, dni , gender, role_id} = body;
   try {
     const newPatient = await Patient.create({
       firstName,
@@ -37,7 +37,8 @@ export async function createNewPatient(body: Patient){
       birthDate,
       phoneNumber,
       dni,
-      gender
+      gender,
+      role_id
     });
     return newPatient;
     
